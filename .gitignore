@@ -1,0 +1,27 @@
+# General build artifacts
+*.o
+*.a
+*.so
+*.dll
+*.dylib
+
+# Executable files
+*.exe
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+
+# IDE and editor files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
+
+# Temporary files
+*.tmp
+*.temp
