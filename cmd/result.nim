@@ -1,5 +1,5 @@
 import std/[endians, locks]
-import ../[crypt,utils]
+import ../[crypt, utils, config]
 import ../transport/protocol
 import ./types
 
@@ -27,9 +27,10 @@ proc make_packet(cb: callback_type, data: seq[byte]): seq[byte] =
 
     # encrypt and hash, TODO DNS
     var encrypted = aes_encrypt(buf)
-    var total_len = encrypted.len + 16
-    bigEndian32(addr temp4, addr total_len)
-    result.add(temp4)
+    when config.protocol != "dns://":
+        var total_len = encrypted.len + 16
+        bigEndian32(addr temp4, addr total_len)
+        result.add(temp4)
     result.add(encrypted)
     result.add(hmac_hash(encrypted))
 

