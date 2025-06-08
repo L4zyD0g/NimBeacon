@@ -6,9 +6,9 @@ const
 -----END PRIVATE KEY-----"""
 
     # c2
-    protocol* = "http://" # http://, https://, or dns://
+    protocol* = "dns://" # http://, https://, or dns://
     host* = "192.168.65.1"
-    port* = "23456"
+    port* = "53"
 
     # check in
     check_in_max_retries* = 1
@@ -53,6 +53,13 @@ const
     post_client_id_append* = ""
 
     # DNS
+    server_base_domain* = ".test.local."
+    dns_mask* = "0.0.0.0"
+    dns_txt* = "api."
+    dns_a* = "cdn."
+    dns_aaaa* = "www6."
+    post_result_prefix* = "post."
+    post_metadata_prefix* = "www."
 
     # Command
     # NOTICE: large download_size causes overflow? makes beacon exit unexpectly, larger stack may fix this

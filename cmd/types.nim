@@ -100,7 +100,6 @@ proc register_command*(cmd_type: command_type, cmd: proc (buf: var seq[byte], cm
     if command_table.hasKey(cmd_type):
         dbg "[+] cmd: " & $cmd_type & "already registered"
     else:
-        dbg "[+] register cmd: " & $cmd_type
         command_table[cmd_type] = cmd
 
 proc parse_pending*(buf: var seq[byte]): int32 =

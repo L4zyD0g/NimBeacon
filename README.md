@@ -34,7 +34,7 @@ Thanks to the following projects and articals:
 
 Compatible with Cobalt Strike 4.5:
 - [ ] Implement more commands
-- [ ] Support DNS
+- [x] Support DNS
 - [ ] Support linux and macOS
 
 Some new features may require patches in Cobalt Strike

