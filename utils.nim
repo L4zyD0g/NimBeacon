@@ -17,10 +17,7 @@ proc toSeq*(ws: wstring): seq[byte] =
 
 template dbg*(msg: string) =
   when not defined(release):
-    if msg.len > 200:
-      echo msg[0..200]
-    else:
-      echo msg
+    echo msg
 
 # usage: importAll('cmd', '.nim')
 macro importAll*(folder, ext: static string) =

