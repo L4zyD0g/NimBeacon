@@ -12,7 +12,7 @@ Any contributions are welcome.
 
 ```
 # install dependencies
-nimble install winim zippy nimcrypto checksums
+nimble install winim zippy nimcrypto checksums smtp
 
 # compile release version
 nim c -d:release -d:ssl beacon.nim
@@ -40,4 +40,5 @@ Compatible with Cobalt Strike 4.5:
 Some new features may require patches in Cobalt Strike
 - [ ] Remove checksum8 and others to evade scanning
 - [ ] Implement new commands
-- [ ] Implement new protocols(like smtp/github?)
+- [x] Implement smtp protocal
+- [ ] Implement other protocols (e.g. Github?)
