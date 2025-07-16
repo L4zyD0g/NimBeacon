@@ -20,6 +20,10 @@ nim c -d:release -d:ssl beacon.nim
 nim c -d:ssl beacon.nim
 ```
 
+## Articles
+- [使用 Nim 实现 CobaltStrike Beacon](https://xz.aliyun.com/news/18173)
+- [[原创]为 CobaltStrike 增加 SMTP Beacon](https://bbs.kanxue.com/thread-287457.htm)
+
 ## Thanks
 Thanks to the following projects and articals:
 - [geacon_plus](https://github.com/Z3ratu1/geacon_plus)
